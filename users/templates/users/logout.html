@@ -1,0 +1,10 @@
+{% extends 'foodapp/base.html' %}
+{% block body %}
+<h1>You have been logged out.</h1>
+<a href="{% url 'foodapp:index' %}">
+    <h2>Home</h2>
+</a>
+<a href="{% url 'login' %}">
+    <h2>Login</h2>
+</a>
+{% endblock %}

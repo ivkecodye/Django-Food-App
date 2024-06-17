@@ -1,0 +1,6 @@
+{% extends 'foodapp/base.html' %}
+{% block body %}
+<h1>Welcome {{ user.username }}!</h1>
+<img width="150px" height="130px" src="{{ user.profile.image.url }}">
+<h4>Profile image uploads in development ... </h4>
+{% endblock %}

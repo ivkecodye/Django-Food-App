@@ -1,0 +1,37 @@
+{% extends 'foodapp/base.html' %}
+{% block body %}
+<h1>Share Your Food With Us!</h1>
+<br />
+{% if user.is_authenticated %}
+<h4>Provide the food origin country in the item description.</h4>
+<h4>In item image field, paste URL from your website or wikipedia.</h4>
+<br />
+<div class="cointainer">
+    <div class="row">
+        <div class="col-md-4 offset-md-4">
+            <div class="card">
+                <div class="card-header text-white bg-info">
+                    <div class="card-title">
+                        Add Item
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form method="POST">
+                        {% csrf_token %}
+                        {% for field in form %}
+                        <div class="form-group">
+                            {{ field.name }}
+                            <br>
+                            {{ field }}
+                        </div>
+                        {% endfor %}
+                        <button class="btn-info" type="submit">Add Item</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% else %}
+<h2>You must be logged in to add an item.</h2>
+{% endif %}
+{% endblock %}
